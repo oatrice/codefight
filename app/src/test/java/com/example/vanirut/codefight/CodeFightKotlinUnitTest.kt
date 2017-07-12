@@ -1,7 +1,6 @@
 package com.example.vanirut.myapplication
 
-import com.example.vanirut.codefight.CodeFight
-import org.junit.Assert.assertEquals
+import com.example.vanirut.codefight.findPrimeNumber
 import org.junit.Test
 
 /**
@@ -530,7 +529,7 @@ class CodeFightKotlinUnitTest {
 
     }*/
 
-    @Test
+    /*@Test
     @Throws(Exception::class)
     fun almost_increasing_sequence() {
 
@@ -569,5 +568,13 @@ class CodeFightKotlinUnitTest {
             assertEquals(expected[i], output)
         }
 
+    }*/
+
+    @Test
+    @Throws(Exception::class)
+    fun test_a() {
+        findPrimeNumber()
     }
+
+
 }
