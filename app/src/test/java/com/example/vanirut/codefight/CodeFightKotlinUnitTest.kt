@@ -1,6 +1,6 @@
 package com.example.vanirut.myapplication
 
-import com.example.vanirut.codefight.findPrimeNumber4
+import com.example.vanirut.codefight.findPrimeNumber44
 import org.junit.Test
 
 /**
@@ -577,7 +577,9 @@ class CodeFightKotlinUnitTest {
 //        findPrimeNumber()
 //        findPrimeNumber2()
 //        findPrimeNumber3()
-        findPrimeNumber4()
+//        findPrimeNumber4()
+        findPrimeNumber44()
+//        findPrimeNumber5()
         val endTime = System.currentTimeMillis()
         println("time: ${endTime - startTime}")
     }
