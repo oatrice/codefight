@@ -124,6 +124,61 @@ fun findPrimeNumber44() {
 
 }
 
+fun findPrimeNumber444() {
+    val primeNumbers : ArrayList<Int> = ArrayList()
+    primeNumbers.add(2)
+
+    for (number in 2..1000000) {
+
+        val middleNumber = number / 2
+
+        for (primeNumberIndex in 0..primeNumbers.size - 1) {
+
+            if (number % primeNumbers[primeNumberIndex] == 0) {
+//                println("A: $number")
+                break
+
+            } else if (primeNumbers[primeNumberIndex] > middleNumber){
+                primeNumbers.add(number)
+                break
+            }
+
+        }
+
+    }
+
+    primeNumbers.forEach { println("Prime number: $it") }
+    println("Total prime number is: ${primeNumbers.size}")
+
+}
+
+fun findPrimeNumber4444() {
+    val primeNumbers : ArrayList<Int> = ArrayList()
+    primeNumbers.add(2)
+
+    for (number in 2..1000000) {
+
+        val middleNumber = number / 2
+
+        for (primeNumberIndex in 0..primeNumbers.size - 1) {
+
+            if (number % primeNumbers[primeNumberIndex] == 0) {
+//                println("A: $number")
+                break
+
+            } else if (primeNumbers[primeNumberIndex] > middleNumber){
+                primeNumbers.add(number)
+                println("Prime number: $number")
+                break
+            }
+
+        }
+
+    }
+    println("Total prime number is: ${primeNumbers.size}")
+
+}
+
 fun findPrimeNumber5() {
     val primeNumbers : ArrayList<Int> = ArrayList()
 //    primeNumbers.add(2)
