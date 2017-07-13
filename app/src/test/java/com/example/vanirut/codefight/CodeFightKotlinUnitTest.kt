@@ -1,6 +1,7 @@
 package com.example.vanirut.myapplication
 
-import com.example.vanirut.codefight.findPrimeNumber444
+import com.example.vanirut.codefight.CodeFight
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 /**
@@ -570,7 +571,7 @@ class CodeFightKotlinUnitTest {
 
     }*/
 
-    @Test
+    /*@Test
     @Throws(Exception::class)
     fun prime_number() {
         val startTime = System.currentTimeMillis()
@@ -584,6 +585,44 @@ class CodeFightKotlinUnitTest {
 //        findPrimeNumber5()
         val endTime = System.currentTimeMillis()
         println("time: ${endTime - startTime}")
+    }*/
+
+    @Test
+    @Throws(Exception::class)
+    fun matrix_elements_sum() {
+
+        val input1 = arrayOf(
+                intArrayOf(1,1,1),
+                intArrayOf(2,2,2),
+                intArrayOf(3,3,3)
+        )
+
+        val input2 = arrayOf(
+                intArrayOf(1,1,1,0),
+                intArrayOf(0,5,0,1),
+                intArrayOf(2,1,3,10)
+        )
+
+        val input3 = arrayOf(
+                intArrayOf(0)
+        )
+
+        val input4 = arrayOf(
+                intArrayOf(1, 2, 3, 0, 5),
+                intArrayOf(6, 0, 8, 9, 0),
+                intArrayOf(2, 1, 0, 5, 8),
+                intArrayOf(1, 5, 6, 2, 4),
+                intArrayOf(0, 7, 8, 3, 4)
+        )
+
+        val inputAll = arrayOf(input1, input2, input3, input4)
+//        val expectedAll = intArrayOf(0, 0, 0, 0)
+        val expectedAll = intArrayOf(18, 9, 0, 28)
+
+        for (position in 0..inputAll.size-1) {
+            val output = CodeFight.matrixElementsSum(inputAll[position])
+            assertEquals(expectedAll[position], output)
+        }
     }
 
 

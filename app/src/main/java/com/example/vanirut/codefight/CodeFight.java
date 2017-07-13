@@ -216,4 +216,54 @@ public class CodeFight {
         return false;
     }
 
+    public static int matrixElementsSum(int[][] matrix) {
+
+        long startTime = System.currentTimeMillis();
+
+        ArrayList<Integer> zeroRoomRow = new ArrayList<>();
+        ArrayList<Integer> zeroRoomColumn = new ArrayList<>();
+
+        for (int row = 0; row < matrix.length; row++) {
+
+            for (int column = 0; column < matrix[row].length; column++) {
+
+                if (matrix[row][column] == 0) {
+                    zeroRoomRow.add(row);
+                    zeroRoomColumn.add(column);
+
+                }
+
+            }
+
+        }
+
+
+        int result = 0;
+        for (int row = 0; row < matrix.length; row++) {
+
+            for (int column = 0; column < matrix[row].length; column++) {
+
+                int rowStore = 0;
+                int rowIndex = zeroRoomColumn.indexOf(column);
+                if (rowIndex != -1)
+                    rowStore = zeroRoomRow.get(rowIndex);
+
+                if (!zeroRoomColumn.contains(column) || rowStore > row) {
+                    int value = matrix[row][column];
+                    result += value;
+
+                }
+
+            }
+
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("time: " + (endTime - startTime));
+        System.out.println("result: " + result);
+
+        return result;
+    }
+
+
 }
