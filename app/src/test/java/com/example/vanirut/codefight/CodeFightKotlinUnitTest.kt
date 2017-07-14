@@ -587,7 +587,7 @@ class CodeFightKotlinUnitTest {
         println("time: ${endTime - startTime}")
     }*/
 
-    @Test
+    /*@Test
     @Throws(Exception::class)
     fun matrix_elements_sum() {
 
@@ -622,6 +622,54 @@ class CodeFightKotlinUnitTest {
         for (position in 0..inputAll.size-1) {
             val output = CodeFight.matrixElementsSum(inputAll[position])
             assertEquals(expectedAll[position], output)
+        }
+    }*/
+
+    /*@Test
+    @Throws(Exception::class)
+    fun all_longest_strings() {
+
+        val inputs = arrayOf(
+                arrayOf("aba", "aa", "ad", "vcd", "aba"),
+                arrayOf("aa"),
+                arrayOf("abc", "eeee", "abcd", "dcd"),
+                arrayOf("a", "abc", "cbd", "zzzzzz", "a", "abcdef", "asasa", "aaaaaa")
+        )
+
+        val expecteds = arrayOf(
+                arrayOf("aba", "vcd", "aba"),
+                arrayOf("aa"),
+                arrayOf("eeee", "abcd"),
+                arrayOf("zzzzzz", "abcdef", "aaaaaa")
+        )
+
+        for (position in 0..inputs.size-1) {
+            val output = CodeFight.allLongestStrings(inputs[position])
+            assertEquals(expecteds[position], output)
+
+        }
+    }*/
+
+    @Test
+    @Throws(Exception::class)
+    fun common_character_count() {
+
+        val inputs = arrayOf(
+                arrayOf("aabcc", "adcaa"),
+                arrayOf("zzzz", "zzzzzzz"),
+                arrayOf("abca", "xyzbac"),
+                arrayOf("a", "b"),
+                arrayOf("a", "aaa")
+        )
+
+        val outputs = intArrayOf(3, 4, 3, 0, 1)
+
+        for (position in 0..inputs.size-1) {
+            val s1 = inputs[position][0]
+            val s2 = inputs[position][1]
+            val output = CodeFight.commonCharacterCount(s1, s2)
+            assertEquals(outputs[position], output)
+
         }
     }
 

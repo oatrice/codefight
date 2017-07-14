@@ -2,6 +2,8 @@ package com.example.vanirut.codefight;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by vanirut on 7/4/2017.
@@ -263,6 +265,74 @@ public class CodeFight {
         System.out.println("result: " + result);
 
         return result;
+    }
+
+    public static String[] allLongestStrings(String[] inputArray) {
+
+        int longestString = 0;
+        ArrayList<String> result = new ArrayList<>();
+
+        for (String inner : inputArray) {
+
+            if (inner.length() > longestString) {
+                longestString = inner.length();
+                result.clear();
+                result.add(inner);
+
+            } else if (inner.length() == longestString) {
+                result.add(inner);
+            }
+
+        }
+
+        return result.toArray(new String[0]);
+    }
+
+    public static int commonCharacterCount(String s1, String s2) {
+
+        char[] s1Array = s1.toCharArray();
+        Arrays.sort(s1Array);
+        char[] s2Array = s2.toCharArray();
+        Arrays.sort(s2Array);
+
+        int count = 0;
+        int countA1 = 0;
+        int countA2 = 0;
+        char storechar = 0;
+
+        ArrayList<Character> a1 = new ArrayList<>();
+        ArrayList<Integer> n1 = new ArrayList<>();
+        ArrayList<Character> a2 = new ArrayList<>();
+        ArrayList<Integer> n2 = new ArrayList<>();
+        Map<Character, Integer> a11 = new HashMap<Character, Integer>();
+
+        for (int i = 0; i < s1Array.length-1; i++) {
+            System.out.println("AAA: " + s1Array[i]);
+
+            if (i == 0) {
+                count = 1;
+                if (s1Array[i] == s1Array[i+1]) {
+                    count = 2;
+                }
+
+            } else if (s1Array[i] == s1Array[i+1] && s1Array[i-1] == s1Array[i]) {
+                count += 1;
+
+            } else if (s1Array[i] == s1Array[i+1] && s1Array[i-1] != s1Array[i]) {
+                count = 2;
+
+            }
+            a11.put(s1Array[i], count);
+        }
+
+        for (Map.Entry<Character, Integer> entry : a11.entrySet()) {
+            String key = entry.getKey().toString();
+            Integer value = entry.getValue();
+            System.out.println("key, " + key + " value " + value);
+        }
+
+
+        return 0;
     }
 
 
