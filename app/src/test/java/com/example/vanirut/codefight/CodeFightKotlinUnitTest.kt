@@ -668,6 +668,7 @@ class CodeFightKotlinUnitTest {
             val s1 = inputs[position][0]
             val s2 = inputs[position][1]
             val output = CodeFight.commonCharacterCount(s1, s2)
+            println("s1: $s1")
             assertEquals(outputs[position], output)
 
         }

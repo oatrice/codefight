@@ -2,8 +2,6 @@ package com.example.vanirut.codefight;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by vanirut on 7/4/2017.
@@ -289,51 +287,43 @@ public class CodeFight {
     }
 
     public static int commonCharacterCount(String s1, String s2) {
-
         char[] s1Array = s1.toCharArray();
         Arrays.sort(s1Array);
         char[] s2Array = s2.toCharArray();
         Arrays.sort(s2Array);
 
-        int count = 0;
-        int countA1 = 0;
-        int countA2 = 0;
-        char storechar = 0;
+        char[] storeArray;
+        if (s1Array.length > s2Array.length) {
+            storeArray = s1Array;
+            s1Array = s2Array;
+            s2Array = storeArray;
 
-        ArrayList<Character> a1 = new ArrayList<>();
-        ArrayList<Integer> n1 = new ArrayList<>();
-        ArrayList<Character> a2 = new ArrayList<>();
-        ArrayList<Integer> n2 = new ArrayList<>();
-        Map<Character, Integer> a11 = new HashMap<Character, Integer>();
+        }
 
-        for (int i = 0; i < s1Array.length-1; i++) {
-            System.out.println("AAA: " + s1Array[i]);
+        int result = 0;
+        int s1Index = 0;
+        int s2Index = 0;
 
-            if (i == 0) {
-                count = 1;
-                if (s1Array[i] == s1Array[i+1]) {
-                    count = 2;
-                }
+        while (s1Index < s1Array.length && s2Index < s2Array.length) {
+            //จะออกจาก loop ก็ต่อเมื่อ index ทั้งสองตัวเพิ่มไปถึงตำแหน่งสุดท้ายแล้วเท่านั้น
 
-            } else if (s1Array[i] == s1Array[i+1] && s1Array[i-1] == s1Array[i]) {
-                count += 1;
+            if (s1Array[s1Index] == s2Array[s2Index]) {
+                result += 1;
+                s1Index++;
+                s2Index++;
 
-            } else if (s1Array[i] == s1Array[i+1] && s1Array[i-1] != s1Array[i]) {
-                count = 2;
+            } else if (s2Index == s2Array.length-1 && s1Index != s1Array.length-1){
+                s2Index = s1Index;
+                s1Index++;
+
+            } else {
+                s2Index++;
 
             }
-            a11.put(s1Array[i], count);
+
         }
 
-        for (Map.Entry<Character, Integer> entry : a11.entrySet()) {
-            String key = entry.getKey().toString();
-            Integer value = entry.getValue();
-            System.out.println("key, " + key + " value " + value);
-        }
-
-
-        return 0;
+        return result;
     }
-
 
 }
