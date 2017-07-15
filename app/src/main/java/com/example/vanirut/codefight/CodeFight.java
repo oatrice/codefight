@@ -287,11 +287,22 @@ public class CodeFight {
     }
 
     public static int commonCharacterCount(String s1, String s2) {
+        //TODO: ต้องการหาผลรวมของตัวอักษรที่น้อยที่สุดของแต่ละ string ที่ส่งเข้ามา เช่น
+        //TODO: s1 = "aabcc" and s2 = "adcaa"
+        //TODO: s1[(a, 2), (b, 1), (c, 2)] และ s2[(a, 3), (c, 1), (d, 1)]
+        //TODO: ดังนั้นจะเลือกตัวที่น้อยที่สุด คือ s1[(a, 2)] s2[(c, 1)]
+        //TODO: 2+1=3
+
+        //TODO: เปลี่ยน string ให้เป็น char array
+        //TODO: เพื่อให้สามารถเช็คตัวอักษรทีละตัวและเรียงลำดับจากน้อยไปมากได้สะดวกมากขึ้น
+        //TODO: เรียงลำดับจากน้อยไปมากทั้ง 2 array
         char[] s1Array = s1.toCharArray();
         Arrays.sort(s1Array);
         char[] s2Array = s2.toCharArray();
         Arrays.sort(s2Array);
 
+        //TODO: สลับให้ s1Array เป็น array ที่สั้นกว่า array เสมอ เพราะต้องการให้ array
+        //TODO: ที่สั้นที่สุดเป็นหลักในการวน loop
         char[] storeArray;
         if (s1Array.length > s2Array.length) {
             storeArray = s1Array;
@@ -300,24 +311,30 @@ public class CodeFight {
 
         }
 
-        int result = 0;
-        int s1Index = 0;
-        int s2Index = 0;
+        int result = 0; //ตัวแปรที่เก็บผลลัพธ์จะเพิ่มขึ้นที่ละ 1 ทุกครั้งที่เจอตัวอักษรที่เหมือนกัน
+        int s1Index = 0; //ตัวแปรที่ใช้เป็น index สำหรับ array s1Array
+        int s2Index = 0; //ตัวแปรที่ใช้เป็น index สำหรับ array 2Array
+
+        //TODO: สาเหตุที่ใช้ index แยกกัน เพราะวิธีการทำงานค่อนข้างต้องการความยืดหยุ่นในการวน
+        //TODO:  loop ที่บางครั้งอาจจะไม่ได้เช็คที่ index เท่ากันทุกครั้ง จะมี s2Index
+        //TODO:  ที่ต้องวนค่าไปเรื่อยจนกว่าจะถึงตัวสุดท้าย ในขณะที่ s2Index
+        //TODO:  อาจจะหยุดรอถ้าเจอตัวอักษรที่ไม่ตรงกัน
 
         while (s1Index < s1Array.length && s2Index < s2Array.length) {
             //จะออกจาก loop ก็ต่อเมื่อ index ทั้งสองตัวเพิ่มไปถึงตำแหน่งสุดท้ายแล้วเท่านั้น
 
             if (s1Array[s1Index] == s2Array[s2Index]) {
-                result += 1;
-                s1Index++;
-                s2Index++;
+                result += 1; //1. ถ้าตัวอักษรเท่ากันให้บวกค่าผลลัพธ์ทีละ 1
+                s1Index++;  //2.และเพิ่มค่า s1Index ทีละ 1
+                s2Index++;  //3. และเพิ่มค่า s/Index ทีละ 1
 
             } else if (s2Index == s2Array.length-1 && s1Index != s1Array.length-1){
-                s2Index = s1Index;
-                s1Index++;
+                s2Index = s1Index;  //5. ถ้า s2Index ถึงจุดสุดท้ายแต่ s1Index ยังไม่สุดท้าย-
+                s1Index++;          //ให้ s2Index กลับมาที่ตำแหน่ง s1Index และให้ s1Index-
+                //เลื่อนไป 1 ตำแหน่ง
 
             } else {
-                s2Index++;
+                s2Index++; //4. ถ้าไม่ตรงเลยให้เพิ่ม s2Index ไปเรื่อยๆ
 
             }
 
