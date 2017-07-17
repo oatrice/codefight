@@ -674,7 +674,7 @@ class CodeFightKotlinUnitTest {
         }
     }*/
 
-    @Test
+    /*@Test
     @Throws(Exception::class)
     fun is_lucky(){
 
@@ -691,7 +691,35 @@ class CodeFightKotlinUnitTest {
             assertEquals(outputs[position], output)
 
         }
+    }*/
+
+    @Test
+    @Throws(Exception::class)
+    fun sort_by_height() {
+
+        val inputs = arrayOf(
+                intArrayOf(-1, 150, 190, 170, -1, -1, 160, 180)
+        )
+
+        val outputs = arrayOf(
+                intArrayOf(-1, 150, 160, 170, -1, -1, 180, 190)
+        )
+
+        for (position in 0..inputs.size-1) {
+            val output = CodeFight.sortByHeight(inputs[position])
+
+            for (position2 in 0..inputs[position].size-1) {
+                println("outputs: ${outputs[position][position2]}, output: ${output[position2]}")
+
+            }
+
+            for (position2 in 0..inputs[position].size-1) {
+                assertEquals(outputs[position][position2], output[position2])
+
+            }
+        }
     }
+
 
 
 }

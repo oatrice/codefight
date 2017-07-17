@@ -368,4 +368,48 @@ public class CodeFight {
         return false;
     }
 
+    public static int[] sortByHeight(int[] a) {
+
+        int[] b = a;
+
+        for (int i = 0; i < a.length-1; i++) {
+
+            int first = b[i];
+
+            if (first == -1)
+                continue;
+
+            for (int j = i+1; j < a.length; j++) {
+                int first2 = b[i];
+                int next = b[j];
+                if (next != -1 && first2 > next){
+                    b[i] = next;
+                    b[j] = first2;
+
+                }
+
+            }
+
+        }
+
+        return b;
+    }
+
+    public static int[] sortByHeight2(int[] a) {
+
+        for (int i = 0; i < a.length-1; i++) {
+
+            if (a[i] != -1 && a[i] > a[i+1]){
+                int store;
+                store = a[i];
+                a[i] = a[i+1];
+                a[i+1] = store;
+
+            }
+
+        }
+
+        return a;
+    }
+
 }
