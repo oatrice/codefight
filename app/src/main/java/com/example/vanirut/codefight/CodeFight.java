@@ -136,15 +136,16 @@ public class CodeFight {
         ArrayList<Integer> newSequenceList = new ArrayList<>();
 
         for (int i = 0; i < sequence.length-1; i++) {
-            if (sequence[i] < sequence[i+1]) {
-                good = true;
-            } else {
-                good = false;
+            if (sequence[i] >= sequence[i+1]){
                 if (i != 0) {
                     if (sequence[i-1] < sequence[i+1]) {
                         badIndex = i;
-                    } else badIndex = i+1;
-                } else badIndex = i;
+
+                    } else
+                        badIndex = i+1;
+
+                } else
+                    badIndex = i;
             }
         }
 
@@ -155,8 +156,6 @@ public class CodeFight {
                     newSequenceList.add(sequence[i]);
                 }
             }
-
-            good = false;
 
         } else
             return true;
@@ -390,21 +389,11 @@ public class CodeFight {
         return a;
     }
 
-    public static int[] sortByHeight2(int[] a) {
+    public static String reverseParentheses(String inputString) {
 
-        for (int i = 0; i < a.length-1; i++) {
 
-            if (a[i] != -1 && a[i] > a[i+1]){
-                int store;
-                store = a[i];
-                a[i] = a[i+1];
-                a[i+1] = store;
 
-            }
-
-        }
-
-        return a;
+        return null;
     }
 
 }

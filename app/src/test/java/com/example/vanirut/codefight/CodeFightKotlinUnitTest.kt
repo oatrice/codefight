@@ -469,8 +469,8 @@ class CodeFightKotlinUnitTest {
 
     }*/
 
-    /*@RequiresApi(Build.VERSION_CODES.N)
-    @Test
+
+    /*@Test
     @Throws(Exception::class)
     fun almost_increasing_sequence() {
         val input = arrayOf(
@@ -693,7 +693,7 @@ class CodeFightKotlinUnitTest {
         }
     }*/
 
-    @Test
+    /*@Test
     @Throws(Exception::class)
     fun sort_by_height() {
 
@@ -718,8 +718,34 @@ class CodeFightKotlinUnitTest {
 
             }
         }
+    }*/
+
+    @Test
+    @Throws(Exception::class)
+    fun reverse_parentheses() {
+
+        val inputs = arrayOf(
+                "a(bcdefghijkl(mno)p)q",
+                "co(de(fight)s)",
+                "Code(Cha(lle)nge)",
+                "Where are the parentheses?",
+                "abc(cba)ab(bac)c",
+                "The ((quick (brown) (fox) jumps over the lazy) dog)"
+        )
+
+        val outputs = arrayOf(
+                "apmnolkjihgfedcbq",
+                "cosfighted",
+                "CodeegnlleahC",
+                "Where are the parentheses?",
+                "abcabcabcabc",
+                "The god quick nworb xof jumps over the lazy"
+        )
+
+        for (i in 0..inputs.size - 1) {
+            val output = CodeFight.reverseParentheses(inputs[i])
+            assertEquals(outputs[i], output)
+        }
     }
-
-
 
 }
