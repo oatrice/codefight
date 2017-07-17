@@ -650,7 +650,7 @@ class CodeFightKotlinUnitTest {
         }
     }*/
 
-    @Test
+    /*@Test
     @Throws(Exception::class)
     fun common_character_count() {
 
@@ -669,6 +669,25 @@ class CodeFightKotlinUnitTest {
             val s2 = inputs[position][1]
             val output = CodeFight.commonCharacterCount(s1, s2)
             println("s1: $s1")
+            assertEquals(outputs[position], output)
+
+        }
+    }*/
+
+    @Test
+    @Throws(Exception::class)
+    fun is_lucky(){
+
+        val inputs = intArrayOf(
+                1230, 239017
+        )
+
+        val outputs = booleanArrayOf(
+                true, false
+        )
+
+        for (position in 0..inputs.size-1){
+            val output = CodeFight.isLucky(inputs[position])
             assertEquals(outputs[position], output)
 
         }

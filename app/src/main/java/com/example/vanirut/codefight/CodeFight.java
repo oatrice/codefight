@@ -343,4 +343,29 @@ public class CodeFight {
         return result;
     }
 
+    public static boolean isLucky(int n) {
+
+        Integer input = n;
+        String inputStr ="" + input;
+
+        char[] inputChar = inputStr.toCharArray();
+
+        int forwardIndex = 0;
+        int backwardIndex = inputChar.length - 1;
+        int forwardSum = 0;
+        int backwardSum = 0;
+
+        for (;forwardIndex <= inputChar.length/2-1; forwardIndex++, backwardIndex--) {
+
+            forwardSum += inputChar[forwardIndex];
+            backwardSum += inputChar[backwardIndex];
+
+        }
+
+        if (forwardSum == backwardSum)
+            return true;
+
+        return false;
+    }
+
 }
