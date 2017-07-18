@@ -8,6 +8,7 @@ import java.util.Arrays;
  */
 
 public class CodeFight {
+
     public static int centuryFromYear(int year) {
         long startTime = System.nanoTime();
 
@@ -477,32 +478,68 @@ public class CodeFight {
     public static String reverseParentheses(String inputString) {
 
         boolean last;
-
-        int openIndex = 0;
+        ArrayList<Character> inputArrayList = new ArrayList<>();
+        StringBuilder result = new StringBuilder();
 
         do {
-            int parenthesOpenIndex = inputString.indexOf("(", openIndex);
+            int openIndex = 0;
+            do {
+                int parenthesOpenIndex = inputString.indexOf("(", openIndex);
 
-            if (parenthesOpenIndex != -1) {
-                openIndex = parenthesOpenIndex + 1;
-                last = true;
+                if (parenthesOpenIndex != -1) {
+                    openIndex = parenthesOpenIndex + 1;
+                    last = true;
 
-            } else {
+                } else {
 
-                last = false;
+                    last = false;
+                }
+
+            } while (last);
+
+            int parenthesOpenIndex = openIndex - 1;
+
+            int parenthesCloseIndex = inputString.indexOf(")", parenthesOpenIndex);
+
+
+            System.out.println("inputString: " + inputString + ", lastParenthesOpenIndex: " +
+                    parenthesOpenIndex + ", parenthesCloseIndex: " + parenthesCloseIndex);
+
+            if (parenthesOpenIndex == -1) {
+                return inputString;
             }
 
+            char[] inputArray = inputString.toCharArray();
+            for (char data : inputArray) {
+                inputArrayList.add(data);
+            }
+
+            int length = parenthesCloseIndex - parenthesOpenIndex;
+            int max = (int) (parenthesOpenIndex + Math.ceil(length / 2.0));
+
+            for (int j = parenthesOpenIndex+1; j < max; j++) {
+                char store = inputArrayList.get(j);
+                char store2 = inputArrayList.get(parenthesCloseIndex - j + parenthesOpenIndex);
+                inputArrayList.set(j, store2);
+                inputArrayList.set(parenthesCloseIndex - j + parenthesOpenIndex, store);
+            }
+
+            inputArrayList.remove(parenthesOpenIndex);
+            inputArrayList.remove(parenthesCloseIndex-1);
+
+            for (Character data : inputArrayList) {
+                result.append(data);
+            }
+
+            parenthesOpenIndex = result.indexOf("(");
+            last = parenthesOpenIndex != -1 ? true : false;
+
+            inputString = result.toString();
+            inputArrayList.clear();
+            result.setLength(0); //clear
         } while (last);
 
-        int parenthesOpenIndex = openIndex - 1;
-
-        int parenthesCloseIndex = inputString.indexOf(")", parenthesOpenIndex);
-
-
-        System.out.println("inputString: " + inputString + ", lastParenthesOpenIndex: " +
-                parenthesOpenIndex + ", parenthesCloseIndex: " + parenthesCloseIndex);
-
-
+        return result.toString();
 
         //------------------------------------
 
@@ -565,7 +602,6 @@ public class CodeFight {
             result += data;
         }*/
 
-        return null;
     }
 
 }
