@@ -389,9 +389,181 @@ public class CodeFight {
         return a;
     }
 
+    public static String reverseParenthesesMySolution(String inputString) {
+
+        boolean last;
+
+        int openIndex = 0;
+        int closeIndex = 0;
+
+        ArrayList<Integer> parenthesOpenIndexes = new ArrayList<>();
+        ArrayList<Integer> parenthesCloseIndexes = new ArrayList<>();
+        ArrayList<Character> inputArrayList = new ArrayList<>();
+
+        int n = 0;
+        do {
+            int parenthesOpenIndex = inputString.indexOf("(", openIndex);
+            int parenthesCloseIndex = inputString.indexOf(")", closeIndex);
+
+            if (parenthesOpenIndex != -1) {
+                last = true;
+                parenthesOpenIndexes.add(parenthesOpenIndex);
+                parenthesCloseIndexes.add(parenthesCloseIndex - n);
+
+                openIndex = parenthesOpenIndex + 1;
+                closeIndex = parenthesCloseIndex + 1;
+
+            } else {
+                last = false;
+
+            }
+
+            n += 2;
+        } while (last);
+
+        char[] inputArray = inputString.toCharArray();
+        for (char data : inputArray) {
+            inputArrayList.add(data);
+        }
+
+        for (int i = 0; i < parenthesOpenIndexes.size(); i++) {
+            int parenthesOpen = parenthesOpenIndexes.get(parenthesOpenIndexes.size() - i -1);
+            int parenthesClose = parenthesCloseIndexes.get(i);
+
+            int length = parenthesClose - parenthesOpen;
+            int max = (int) (parenthesOpen + Math.ceil(length / 2.0));
+
+            for (int j = parenthesOpen+1; j < max; j++) {
+                char store = inputArrayList.get(j);
+                char store2 = inputArrayList.get(parenthesClose - j + parenthesOpen);
+                inputArrayList.set(j, store2);
+                inputArrayList.set(parenthesClose - j + parenthesOpen, store);
+            }
+
+            inputArrayList.remove(parenthesOpen);
+            inputArrayList.remove(parenthesClose-1);
+        }
+
+        String result = "";
+
+        for (Character data : inputArrayList) {
+            result += data;
+        }
+
+        return result;
+    }
+
+    public static String reverseParenthesesReEx(String inputString) {
+        /*
+        def reverseParentheses(s):
+            import re
+            innerGroups = re.findall(r"\([^\(\)]*\)", s)
+            while innerGroups != []:
+                for x in innerGroups:
+                    s = re.sub(r"\([^\(\)]*\)", x[1:-1][::-1], s, 1)
+                innerGroups = re.findall(r"\([^\(\)]*\)", s)
+            return s
+        */
+
+        String[] strArr = inputString.split("\\([^\\(\\)]*\\)");
+        StringBuilder strBuilder = new StringBuilder();
+        for (int i = 0; i < strArr.length; i++) {
+            strBuilder.append(strArr[i]);
+        }
+        String newString = strBuilder.toString();
+        return String.valueOf(newString);
+    }
+
     public static String reverseParentheses(String inputString) {
 
+        boolean last;
 
+        int openIndex = 0;
+
+        do {
+            int parenthesOpenIndex = inputString.indexOf("(", openIndex);
+
+            if (parenthesOpenIndex != -1) {
+                openIndex = parenthesOpenIndex + 1;
+                last = true;
+
+            } else {
+
+                last = false;
+            }
+
+        } while (last);
+
+        int parenthesOpenIndex = openIndex - 1;
+
+        int parenthesCloseIndex = inputString.indexOf(")", parenthesOpenIndex);
+
+
+        System.out.println("inputString: " + inputString + ", lastParenthesOpenIndex: " +
+                parenthesOpenIndex + ", parenthesCloseIndex: " + parenthesCloseIndex);
+
+
+
+        //------------------------------------
+
+        /*boolean last;
+
+        int openIndex = 0;
+        int closeIndex = 0;
+
+        ArrayList<Integer> parenthesOpenIndexes = new ArrayList<>();
+        ArrayList<Integer> parenthesCloseIndexes = new ArrayList<>();
+        ArrayList<Character> inputArrayList = new ArrayList<>();
+
+        int n = 0;
+        do {
+            int parenthesOpenIndex = inputString.indexOf("(", openIndex);
+            int parenthesCloseIndex = inputString.indexOf(")", closeIndex);
+
+            if (parenthesOpenIndex != -1) {
+                last = true;
+                parenthesOpenIndexes.add(parenthesOpenIndex);
+                parenthesCloseIndexes.add(parenthesCloseIndex - n);
+
+                openIndex = parenthesOpenIndex + 1;
+                closeIndex = parenthesCloseIndex + 1;
+
+            } else {
+                last = false;
+
+            }
+
+            n += 2;
+        } while (last);
+
+        char[] inputArray = inputString.toCharArray();
+        for (char data : inputArray) {
+            inputArrayList.add(data);
+        }
+
+        for (int i = 0; i < parenthesOpenIndexes.size(); i++) {
+            int parenthesOpen = parenthesOpenIndexes.get(parenthesOpenIndexes.size() - i -1);
+            int parenthesClose = parenthesCloseIndexes.get(i);
+
+            int length = parenthesClose - parenthesOpen;
+            int max = (int) (parenthesOpen + Math.ceil(length / 2.0));
+
+            for (int j = parenthesOpen+1; j < max; j++) {
+                char store = inputArrayList.get(j);
+                char store2 = inputArrayList.get(parenthesClose - j + parenthesOpen);
+                inputArrayList.set(j, store2);
+                inputArrayList.set(parenthesClose - j + parenthesOpen, store);
+            }
+
+            inputArrayList.remove(parenthesOpen);
+            inputArrayList.remove(parenthesClose-1);
+        }
+
+        String result = "";
+
+        for (Character data : inputArrayList) {
+            result += data;
+        }*/
 
         return null;
     }
