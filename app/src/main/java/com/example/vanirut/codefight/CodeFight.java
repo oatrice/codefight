@@ -543,4 +543,54 @@ public class CodeFight {
 
     }
 
+    public static int[] alternatingSums(int[] a) {
+
+        int firstTeamSum = 0;
+        int secondTeamSum = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            if (i % 2 == 0) {
+                firstTeamSum += a[i];
+
+            } else {
+                secondTeamSum += a[i];
+
+            }
+        }
+
+        int[] result = {firstTeamSum, secondTeamSum};
+
+        return result;
+    }
+
+    public static String[] addBorder(String[] picture) {
+
+        int maxLineResult = picture.length+2;
+        String[] result = new String[maxLineResult];
+        StringBuffer sb = new StringBuffer();
+        int inPictureLength = picture[0].length();
+
+        for (int j = 0; j < inPictureLength+2; j++) {
+            sb.append("*");
+        }
+
+        result[0] = sb.toString();
+        sb.setLength(0);
+
+        for (int i = 1; i < maxLineResult-1; i++) {
+            sb.append("*").append(picture[i-1]).append("*");
+            result[i] = sb.toString();
+            sb.setLength(0);
+
+        }
+
+        for (int j = 0; j < inPictureLength+2; j++) {
+            sb.append("*");
+        }
+
+        result[maxLineResult-1] = sb.toString();
+
+        return result;
+    }
+
 }

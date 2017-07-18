@@ -1,7 +1,7 @@
 package com.example.vanirut.myapplication
 
 import com.example.vanirut.codefight.CodeFight
-//import org.junit.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 /**
@@ -720,7 +720,7 @@ class CodeFightKotlinUnitTest {
         }
     }*/
 
-    @Test
+    /*@Test
     @Throws(Exception::class)
     fun reverse_parentheses() {
 
@@ -749,6 +749,58 @@ class CodeFightKotlinUnitTest {
 //            val output = CodeFight.reverseParenthesesMySolution(inputs[i])
             println("outputs[$i]: ${outputs[i]}, output: $output")
 //            assertEquals(outputs[i], output)
+        }
+    }*/
+
+    /*@Test
+    @Throws(Exception::class)
+    fun alternating_sums() {
+
+        val inputs = arrayOf(
+                intArrayOf(50, 60, 60, 45, 70),
+                intArrayOf(100, 50)
+
+        )
+        val outputs = arrayOf(
+                intArrayOf(180, 105),
+                intArrayOf(100, 50)
+
+        )
+
+        for (i in 0.. inputs.size-1) {
+            val output = CodeFight.alternatingSums(inputs[i])
+            assertEquals(outputs[i][0], output[0])
+            assertEquals(outputs[i][1], output[1])
+
+        }
+    }*/
+
+    @Test
+    @Throws(Exception::class)
+    fun add_border() {
+        val inputs = arrayOf(
+                arrayOf("abc",
+                        "ded"),
+
+                arrayOf("a")
+        )
+
+        val outputs = arrayOf(
+                arrayOf("*****",
+                        "*abc*",
+                        "*ded*",
+                        "*****"),
+
+                arrayOf("***",
+                        "*a*",
+                        "***")
+        )
+
+        for (i in 0.. inputs.size-1) {
+            val output = CodeFight.addBorder(inputs[i])
+            assertEquals(outputs[i][0], output[0])
+            assertEquals(outputs[i][1], output[1])
+
         }
     }
 
