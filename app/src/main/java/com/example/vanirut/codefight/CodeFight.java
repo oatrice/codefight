@@ -593,4 +593,56 @@ public class CodeFight {
         return result;
     }
 
+
+    //TODO: O(n) = (n^2-n-2)/2 as (n^2)/2
+    public static boolean areSimilar2(int[] a, int[] b) {
+
+        int[] originalA = Arrays.copyOf(a, a.length);
+        int round = 0;
+        boolean similar = Arrays.equals(a,b);
+
+        if (similar) {
+            return true;
+        }
+
+        for (int i = 0; i < a.length-1; i++) {
+            for (int j = i+1; j < a.length; j++) {
+                round += 1;
+                a = Arrays.copyOf(originalA, originalA.length);
+                //Swap
+                a[i] = a[i] + a[j];
+                a[j] = a[i] - a[j];
+                a[i] = a[i] - a[j];
+
+                //isEqual
+                similar = Arrays.equals(a,b);
+
+                if (similar) {
+                    return true;
+                }
+
+            }
+        }
+
+        return false;
+    }
+    
+    public static boolean areSimilar(int[] a1, int[] b1) {
+        int count = 0;
+        int[] a = Arrays.copyOf(a1, a1.length);
+        int[] b = Arrays.copyOf(b1, b1.length);
+        Arrays.sort(a);
+        Arrays.sort(b);
+        for (int i = 0; i < a.length; i++) {
+            if(a[i]==b[i])
+                count +=1;
+
+        }
+
+        if (((count > 2)) && (Arrays.equals(a1, b1)))
+            return true;
+        else
+            return false;
+    }
+
 }
