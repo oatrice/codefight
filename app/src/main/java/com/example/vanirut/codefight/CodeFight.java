@@ -595,7 +595,7 @@ public class CodeFight {
 
 
     //TODO: O(n) = (n^2-n-2)/2 as (n^2)/2
-    public static boolean areSimilar2(int[] a, int[] b) {
+    public static boolean areSimilarMy(int[] a, int[] b) {
 
         int[] originalA = Arrays.copyOf(a, a.length);
         int round = 0;
@@ -627,22 +627,23 @@ public class CodeFight {
         return false;
     }
     
-    public static boolean areSimilar(int[] a1, int[] b1) {
-        int count = 0;
-        int[] a = Arrays.copyOf(a1, a1.length);
-        int[] b = Arrays.copyOf(b1, b1.length);
-        Arrays.sort(a);
-        Arrays.sort(b);
-        for (int i = 0; i < a.length; i++) {
-            if(a[i]==b[i])
-                count +=1;
+    public static boolean areSimilar(int[] A, int[] B) {
+        if(A.length != B.length) return false;
 
+        int countSwap = 0;
+        int[] copyA = Arrays.copyOf(A, A.length);
+        int[] copyB = Arrays.copyOf(B, B.length);
+
+        // checking both contain the same elements...
+        Arrays.sort(copyA); Arrays.sort(copyB);
+        if(!Arrays.equals(copyA, copyB)) return false;
+
+        // checking for min 2 swaps using original arrays...
+        for(int i = 0; i < A.length; i++) {
+            if(A[i] != B[i]) countSwap++;
         }
 
-        if (((count > 2)) && (Arrays.equals(a1, b1)))
-            return true;
-        else
-            return false;
+        return (countSwap == 2 || countSwap == 0);
     }
 
 }
