@@ -812,16 +812,15 @@ class CodeFightKotlinUnitTest {
                 arrayOf(intArrayOf(1, 2, 3), intArrayOf(2, 1, 3)),
                 arrayOf(intArrayOf(1, 2, 2), intArrayOf(2, 1, 1)),
                 arrayOf(intArrayOf(2, 3, 1), intArrayOf(1, 3, 2)),
-                arrayOf(intArrayOf(2, 1, 3), intArrayOf(1, 3, 2)),
                 arrayOf(intArrayOf(4, 6, 3), intArrayOf(4, 3, 6))
                 )
 
-        val outputs = arrayOf(true, true, false, true, true, false)
+        val outputs = arrayOf(true, true, false, true, false)
 
 
         for (i in 0..inputs.size-1) {
             println("i: $i")
-            val output = CodeFight.areSimilar(inputs[i][0], inputs[i][1])
+            val output = CodeFight.areSimilarMy(inputs[i][0], inputs[i][1])
 //            assertEquals(1, 1)
             assertEquals(outputs[i], output)
 

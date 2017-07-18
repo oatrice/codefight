@@ -628,6 +628,27 @@ public class CodeFight {
     }
     
     public static boolean areSimilar(int[] A, int[] B) {
+        if(A.length != B.length) return false;
+
+        int countSwap = 0;
+        int[] copyA = Arrays.copyOf(A, A.length);
+        int[] copyB = Arrays.copyOf(B, B.length);
+
+        // checking both contain the same elements...
+        Arrays.sort(copyA); Arrays.sort(copyB);
+        if(!Arrays.equals(copyA, copyB)) return false;
+
+        // checking for min 2 swaps using original arrays...
+        for(int i = 0; i < A.length; i++) {
+            if(A[i] != B[i]) countSwap++;
+        }
+
+        System.out.println("countSwap: " + countSwap);
+
+        return (countSwap == 2 || countSwap == 0);
+    }
+
+    public static boolean areSimilar2(int[] A, int[] B) {
         ArrayList<Integer> ids = new ArrayList<>();
         for (int i = 0; i < A.length; i++) {
             if ( A[i] != B[i] ) {
