@@ -730,7 +730,8 @@ class CodeFightKotlinUnitTest {
                 "Code(Cha(lle)nge)",
                 "Where are the parentheses?",
                 "abc(cba)ab(bac)c",
-                "The ((quick (brown) (fox) jumps over the lazy) dog)"
+                "The ((quick (brown) (fox) jumps over the lazy) dog)",
+                "a(bc)de"
         )
 
         val outputs = arrayOf(
@@ -739,7 +740,8 @@ class CodeFightKotlinUnitTest {
                 "CodeegnlleahC",
                 "Where are the parentheses?",
                 "abcabcabcabc",
-                "The god quick nworb xof jumps over the lazy"
+                "The god quick nworb xof jumps over the lazy",
+                "acbde"
         )
 
         for (i in 0..inputs.size - 1) {

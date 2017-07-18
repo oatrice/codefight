@@ -539,68 +539,7 @@ public class CodeFight {
             result.setLength(0); //clear
         } while (last);
 
-        return result.toString();
-
-        //------------------------------------
-
-        /*boolean last;
-
-        int openIndex = 0;
-        int closeIndex = 0;
-
-        ArrayList<Integer> parenthesOpenIndexes = new ArrayList<>();
-        ArrayList<Integer> parenthesCloseIndexes = new ArrayList<>();
-        ArrayList<Character> inputArrayList = new ArrayList<>();
-
-        int n = 0;
-        do {
-            int parenthesOpenIndex = inputString.indexOf("(", openIndex);
-            int parenthesCloseIndex = inputString.indexOf(")", closeIndex);
-
-            if (parenthesOpenIndex != -1) {
-                last = true;
-                parenthesOpenIndexes.add(parenthesOpenIndex);
-                parenthesCloseIndexes.add(parenthesCloseIndex - n);
-
-                openIndex = parenthesOpenIndex + 1;
-                closeIndex = parenthesCloseIndex + 1;
-
-            } else {
-                last = false;
-
-            }
-
-            n += 2;
-        } while (last);
-
-        char[] inputArray = inputString.toCharArray();
-        for (char data : inputArray) {
-            inputArrayList.add(data);
-        }
-
-        for (int i = 0; i < parenthesOpenIndexes.size(); i++) {
-            int parenthesOpen = parenthesOpenIndexes.get(parenthesOpenIndexes.size() - i -1);
-            int parenthesClose = parenthesCloseIndexes.get(i);
-
-            int length = parenthesClose - parenthesOpen;
-            int max = (int) (parenthesOpen + Math.ceil(length / 2.0));
-
-            for (int j = parenthesOpen+1; j < max; j++) {
-                char store = inputArrayList.get(j);
-                char store2 = inputArrayList.get(parenthesClose - j + parenthesOpen);
-                inputArrayList.set(j, store2);
-                inputArrayList.set(parenthesClose - j + parenthesOpen, store);
-            }
-
-            inputArrayList.remove(parenthesOpen);
-            inputArrayList.remove(parenthesClose-1);
-        }
-
-        String result = "";
-
-        for (Character data : inputArrayList) {
-            result += data;
-        }*/
+        return inputString;
 
     }
 
