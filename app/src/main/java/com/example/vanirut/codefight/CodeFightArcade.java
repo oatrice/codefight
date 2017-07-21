@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Created by vanirut on 7/4/2017.
  */
 
-public class CodeFight {
+public class CodeFightArcade {
 
     public static int centuryFromYear(int year) {
         long startTime = System.nanoTime();
@@ -668,5 +668,4 @@ public class CodeFight {
         }
         return false;
     }
-
 }

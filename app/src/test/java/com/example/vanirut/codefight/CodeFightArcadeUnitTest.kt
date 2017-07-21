@@ -1,15 +1,15 @@
 package com.example.vanirut.myapplication
 
-import com.example.vanirut.codefight.CodeFight
-import org.junit.Assert.assertEquals
+import com.example.vanirut.codefight.CodeFightArcade
 import org.junit.Test
+import org.junit.Assert.assertEquals
 
 /**
  * Example local unit test, which will execute on the development machine (host).
 
  * @see [Testing documentation](http://d.android.com/tools/testing)
  */
-class CodeFightKotlinUnitTest {
+class CodeFightArcadeUnitTest {
 
     /*@Test
     @Throws(Exception::class)
@@ -820,7 +820,7 @@ class CodeFightKotlinUnitTest {
 
         for (i in 0..inputs.size-1) {
             println("i: $i")
-            val output = CodeFight.areSimilarMy(inputs[i][0], inputs[i][1])
+            val output = CodeFightArcade.areSimilarMy(inputs[i][0], inputs[i][1])
 //            assertEquals(1, 1)
             assertEquals(outputs[i], output)
 
