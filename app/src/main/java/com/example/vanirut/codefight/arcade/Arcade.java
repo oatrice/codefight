@@ -1,4 +1,4 @@
-package com.example.vanirut.codefight;
+package com.example.vanirut.codefight.arcade;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Created by vanirut on 7/4/2017.
  */
 
-public class CodeFightArcade {
+public class Arcade {
 
     public static int centuryFromYear(int year) {
         long startTime = System.nanoTime();

@@ -1,6 +1,6 @@
 package com.example.vanirut.myapplication
 
-import com.example.vanirut.codefight.CodeFightArcade
+import com.example.vanirut.codefight.arcade.Arcade
 import org.junit.Test
 import org.junit.Assert.assertEquals
 
@@ -820,7 +820,7 @@ class CodeFightArcadeUnitTest {
 
         for (i in 0..inputs.size-1) {
             println("i: $i")
-            val output = CodeFightArcade.areSimilarMy(inputs[i][0], inputs[i][1])
+            val output = Arcade.areSimilarMy(inputs[i][0], inputs[i][1])
 //            assertEquals(1, 1)
             assertEquals(outputs[i], output)
 

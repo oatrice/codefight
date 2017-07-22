@@ -1,49 +1,13 @@
 package com.example.vanirut.codefight
 
-import com.example.vanirut.codefight.interview_practice.CodeFightBasicGraph
+import com.example.vanirut.codefight.job_skill.SkillTestForJobs
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
 /**
  * Created by vanirut on 7/21/2017.
  */
-class CodeFightInterview {
-
-    /*@Test
-    @Throws(Exception::class)
-    fun hasDeadlock() {
-
-        val inputs = arrayOf(
-                arrayOf(
-                        intArrayOf(1),
-                        intArrayOf(2),
-                        intArrayOf(3, 4),
-                        intArrayOf(4),
-                        intArrayOf(0)),
-                arrayOf(
-                        intArrayOf(1, 2, 3),
-                        intArrayOf(2, 3),
-                        intArrayOf(3),
-                        intArrayOf()),
-                arrayOf(
-                        intArrayOf(1,2),
-                        intArrayOf(2),
-                        intArrayOf(),
-                        intArrayOf(4),
-                        intArrayOf(3))
-        )
-
-        val expected = arrayOf(
-                true, false, true)
-
-
-        for (i in 0..inputs.lastIndex) {
-            val output = CodeFightBasicGraph.hasDeadlock(inputs[i])
-//            assertEquals(true, true)
-            assertEquals(expected[i], output)
-
-        }
-    }*/
+class CodeFightJobsSkillUnitTest {
 
     /*@Test
     @Throws(Exception::class)
@@ -65,7 +29,7 @@ class CodeFightInterview {
         )
 
         for (i in 0..inputs.lastIndex) {
-            val output = CodeFightBasicGraph.constructSubmatrix(inputs[i], rmRows[i], rmColumns[i])
+            val output = SkillTestForJobs.constructSubmatrix(inputs[i], rmRows[i], rmColumns[i])
 //            assertEquals(true, true)
             assertEquals(expected[i], output)
 
@@ -75,7 +39,7 @@ class CodeFightInterview {
     /*@Test
     @Throws(Exception::class)
     fun periodicSequence() {
-        val output = CodeFightBasicGraph.periodicSequence(11, 2, 6, 12)
+        val output = SkillTestForJobs.periodicSequence(11, 2, 6, 12)
         assertEquals(2, output)
 //        assertEquals(expected[i], output)
 
@@ -123,7 +87,7 @@ class CodeFightInterview {
 
 //        val output = CodeFightBasicGraph.textJustification(input, 16)
         for (i in 0..input.lastIndex) {
-            val output = CodeFightBasicGraph.textJustification2(input[i], width[i])
+            val output = SkillTestForJobs.textJustificationImproved(input[i], width[i])
 //            assertEquals(true, true)
             assertEquals(expected[i], output)
         }
